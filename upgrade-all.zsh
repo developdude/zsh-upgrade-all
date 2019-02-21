@@ -5,10 +5,8 @@ upgrade-all() {
     'brew upgrade && brew cleanup'
     'docker system prune --force --all'
     'for app in $(brew cask outdated); do brew cask reinstall $app; done'
-    'npm list -g --parseable --json 2>/dev/null | jq -r ".dependencies | keys | .[]" | xargs npm install -g && npm cache verify'
-    'yarn global upgrade'
-    'antibody update'
-    'nvim +PlugUpgrade +PlugInstall +PlugClean! +qa!'
+    'softwareupdate -l'
+    softwareupdate -i -a
   )
 
   local session=""
